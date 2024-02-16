@@ -17,7 +17,7 @@
 		"jsx": "react",
 		"incremental": true,
 		"noUncheckedIndexedAccess": true,
-		"baseUrl": ".",
+		"baseUrl": "./src",
 		"paths": {
 			"~/*": ["./src/*"]
 		},
