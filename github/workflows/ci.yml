@@ -1,0 +1,42 @@
+name: CI
+
+on:
+ pull_request:
+ merge_group:
+
+# Cancel previous runs of the same workflow on the same branch.
+concurrency:
+ group: ${{ github.workflow }}-${{ github.ref }}
+ cancel-in-progress: true
+
+jobs:
+ # typescript:
+ #   name: TypeScript
+ #   runs-on: ubuntu-20.04
+ #   steps:
+ #     - name: Checkout repository
+ #       uses: actions/checkout@v3
+
+ #     - name: Setup Node.js, pnpm and dependencies
+ #       uses: ./.github/actions/setup-pnpm
+ #       with:
+ #         token: ${{ secrets.GITHUB_TOKEN }}
+
+ #     - name: Perform typechecks
+ #       run: SKIP_ENV_VALIDATION=1 pnpm typecheck
+
+ eslint:
+  name: ESLint
+  runs-on: ubuntu-latest
+  steps:
+   - name: Checkout repository
+     uses: actions/checkout@v3
+
+   - name: Setup Node.js, pnpm and dependencies
+     uses: ./.github/actions/setup-pnpm
+     with:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+   - name: Perform linting
+     run: SKIP_ENV_VALIDATION=1 pnpm lint
+
