@@ -1,6 +1,5 @@
 import React from "react";
 import { TopBar } from "../../components/interface/topbar";
-import LogicGateTestPage from "pages/LogicGates/LogicGateTestPage";
 
 const HomePage: React.FC = () => {
 	return (
@@ -24,9 +23,6 @@ const HomePage: React.FC = () => {
 								<p>Test your logic with this interactive Logic Gate simulator.</p>
 							</div>
 						</a>
-
-						{/* Use the LogicGateTestPage component */}
-						<LogicGateTestPage />
 
 						<a href="/fetch-execute-cycle-test" className="text-decoration-none">
 							<div className="bg-gray-800 p-6 rounded-lg text-white">
